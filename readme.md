@@ -1,8 +1,8 @@
 # Initiative:
  - As a developer, when I push my code to the master branch, I want my changes to be integrated onto a build/artifacts repository and pushed to/updated on a production server so that I do not have to do those steps myself.
 
-## Epics:
- - CI: As a developer, when I push my code to the master branch, I want my changes to be built, tested, and integrated onto a build/artifacts repository so that integration occurs automatically.
+# Epics:
+## CI: As a developer, when I push my code to the master branch, I want my changes to be built, tested, and integrated onto a build/artifacts repository so that integration occurs automatically.
  - As a developer, when I push my code to the master branch, I want my code to be built and pushed to an artifact/build repository so that I do not have to do it myself.
  - As a developer, when a build fails, I want to be notified why the build failed so that I can debug my code more easily.
 As a developer, when my code is built, I would like my code to be tested so that   

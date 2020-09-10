@@ -1,8 +1,1 @@
-configuration-as-code:latest
-git:latest
-github:latest
-junit:latest
-pipeline-model-definition:latest
-pipeline-stage-step:latest
-pipeline-maven:latest
-workflow-aggregator:latest
+configuration-as-code:latest git:latest github:latest junit:latest pipeline-model-definition:latest pipeline-stage-step:latest pipeline-maven:latest workflow-aggregator:latest job-dsl:latest

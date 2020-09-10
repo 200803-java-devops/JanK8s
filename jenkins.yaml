@@ -24,3 +24,43 @@ tool:
           installers:
           - maven:
               id: "3.5.4"
+jobs:
+  - script: >
+      pipelineJob('mvn-exists-test') {
+        definition {
+          cps {
+            script("""\
+              pipeline {
+                agent any
+                tools {
+                // Install the Maven version configured as "M3" and add it to the path.
+                  maven "maven3"
+                }
+                stages {
+                  stage ('test') {
+                    steps {
+                      echo "hello"
+                      sh "mvn -v"
+                    }
+                  }
+                }
+              }""".stripIndent())
+          }
+        }
+      }
+  - script: >
+      pipelineJob('Http-server') {
+        definition {
+          cpsScm {
+            scm {
+              git {
+                remote {
+                  url('https://github.com/200803-java-devops/http-server.git')
+                }
+                branch('*/master')
+              }
+            }
+            lightweight()
+          }
+        }
+      }

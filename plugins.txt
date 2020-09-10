@@ -1,5 +1,6 @@
 configuration-as-code:latest
 git:latest
+github:latest
 junit:latest
 pipeline-model-definition:latest
 pipeline-stage-step:latest

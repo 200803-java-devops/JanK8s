@@ -7,6 +7,7 @@ ENV CASC_JENKINS_CONFIG /var/jenkins_conf
 ENV DOCKER_CHANNEL stable
 ENV DOCKER_VERSION 19.03.12
 USER root
+# DOCKER_GID should correspond to the group id of the docker group. You can check it on Linux systems with 'getent group docker'
 ENV DOCKER_GID=1001
 RUN groupadd -g ${DOCKER_GID} docker\
 && usermod -a -G docker jenkins

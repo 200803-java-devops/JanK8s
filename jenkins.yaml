@@ -11,6 +11,9 @@ jenkins:
   authorizationStrategy:
     loggedInUsersCanDoAnything:
       allowAnonymousRead: false
+  security:
+    globalJobDslSecurityConfiguration:
+    useScriptSecurity: false
 tool:
   git:
     installations:

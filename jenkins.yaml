@@ -26,6 +26,12 @@ jenkins:
   authorizationStrategy:
     loggedInUsersCanDoAnything:
       allowAnonymousRead: false
+unclassified:
+    gitHubPluginConfig:
+        configs:
+        -  name: "default"
+           credentialsId: "4c65c3ce-abf9-498d-9cb6-985c27c2f553"
+        hookUrl: "${MY_JENKINS_PROXY}"
 tool:
   git:
     installations:

@@ -1,3 +1,18 @@
+credentials:
+    system:
+      domainCredentials:
+      - credentials:
+        - string:
+            description: "jenkins webhook token"
+            id: "4c65c3ce-abf9-498d-9cb6-985c27c2f553"
+            scope: GLOBAL
+            secret: ${GITHUB_WEBHOOK_TOKEN}
+        - usernamePassword:
+            description: "docker hub"
+            id: "docker_hub_credentials"
+            password: ${DOCKER_HUB_TOKEN}
+            scope: GLOBAL
+            username: ${DOCKER_HUB_USERNAME}
 jenkins:
   systemMessage: "Jenkins Configuration as Code Example"
   numExecutors: 1
@@ -11,6 +26,12 @@ jenkins:
   authorizationStrategy:
     loggedInUsersCanDoAnything:
       allowAnonymousRead: false
+unclassified:
+    gitHubPluginConfig:
+        configs:
+        -  name: "default"
+           credentialsId: "4c65c3ce-abf9-498d-9cb6-985c27c2f553"
+        hookUrl: "${MY_JENKINS_PROXY}"
 tool:
   git:
     installations:

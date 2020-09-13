@@ -86,7 +86,7 @@ jobs:
         }
       }
   - script: >
-      pipelineJob('mvn-exists-test') {
+      pipelineJob('docker build and push') {
         definition {
           cps {
             script("""\

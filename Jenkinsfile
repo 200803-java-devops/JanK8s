@@ -32,6 +32,12 @@ pipeline {
     stage('Push Image'){
 
     }
-    stage('Deploy to K8S')
+    stage('Deploy to K8S'){
+
+    }
+
+    stage('Slack Notification'){
+        
+    }
     
 }

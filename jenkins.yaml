@@ -13,6 +13,10 @@ credentials:
             password: ${DOCKER_HUB_TOKEN}
             scope: GLOBAL
             username: ${DOCKER_HUB_USERNAME}
+        - string:
+            description: "Slack Token"
+            scope: GLOBAL
+            secret: ${SLACK_TOKEN}
 jenkins:
   systemMessage: "Jenkins Configuration as Code Example"
   numExecutors: 1

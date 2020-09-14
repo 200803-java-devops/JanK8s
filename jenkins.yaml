@@ -53,23 +53,16 @@ jobs:
   - script: >
       pipelineJob('mvn-exists-test') {
         definition {
-          cps {
-            script("""\
-              pipeline {
-                agent any
-                tools {
-                // Install the Maven version configured as "M3" and add it to the path.
-                  maven "maven3"
+          cpsScm {
+            scm {
+              git {
+                remote {
+                  url('https://github.com/200803-java-devops/JanK8s.git')
                 }
-                stages {
-                  stage ('test') {
-                    steps {
-                      echo "hello"
-                      sh "mvn -v"
-                    }
-                  }
-                }
-              }""".stripIndent())
+                branch('*/dev')
+              }
+            }
+            lightweight()
           }
         }
       }
@@ -80,9 +73,9 @@ jobs:
             scm {
               git {
                 remote {
-                  url('https://github.com/200803-java-devops/http-server.git')
+                  url('https://github.com/200803-java-devops/JanK8s.git')
                 }
-                branch('*/master')
+                branch('*/dev')
               }
             }
             lightweight()

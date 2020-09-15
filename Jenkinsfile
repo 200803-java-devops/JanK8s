@@ -15,7 +15,7 @@ pipeline {
     }
     post {
         always {
-            emailext body: 'test body', recipientProviders: [buildUser()], subject: 'test subject'
+            emailext body: 'test body', recipientProviders: [buildUser(), culprits(), developers(), requestor(), brokenBuildSuspects(), brokenTestsSuspects(), upstreamDevelopers()], subject: 'test subject'
         }
     }
 }

@@ -3,29 +3,21 @@ pipeline {
     agent any
 
     stages {
-        stage('Preparation') { // for display purposes
-            agent{docker 'maven:3-alpine'}
-            // Get some code from a GitHub repository
-            
-            // Get the Maven tool.
-            // ** NOTE: This 'M3' Maven tool must be configured
-            // **       in the global configuration.
-            mvnHome = tool 'M3'
-        }
         stage('Build') {
             // Run the maven build
+            steps {
+                echo 'building..'
+            }
         }
-        stage('Results') {
-            
+        stage('Test') {
+            steps {
+                echo 'testing..'
+            }
         }
-        stage('Build Image'){
-    
-        }
-        stage('Push Image'){
-
-        }
-        stage('Deploy to K8S'){
-
+        stage('Deploy') {
+            steps {
+                echo 'deploying..'
+            }
         }
     }
     post {

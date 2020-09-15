@@ -15,7 +15,7 @@ pipeline {
     }
     post {
         always {
-            emailext body: 'test body', recipientProviders: [buildUser(), culprits(), developers(), requestor(), brokenBuildSuspects(), brokenTestsSuspects(), upstreamDevelopers()], subject: 'test subject', to: 'downward150@gmail.com'
+            emailext body: 'test body', recipientProviders: [recipientList()], subject: 'test subject'
         }
     }
 }

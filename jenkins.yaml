@@ -45,6 +45,34 @@ unclassified:
       sendAsText: false
       teamDomain: "revaturetrain-cx22851"
       tokenCredentialId: "${SLACK_TOKEN}"
+    email-ext:
+      adminRequiredForTemplateTesting: false
+      allowUnregisteredEnabled: true
+      charset: "UTF-8"
+      debugMode: false
+      defaultBody: |-
+        $PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:
+  
+        Check console output at $BUILD_URL to view the results.
+      defaultContentType: "text/plain"
+      defaultRecipients: "downward150@gmail.com"
+      defaultSubject: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!"
+      defaultTriggerIds:
+      - "hudson.plugins.emailext.plugins.trigger.AlwaysTrigger"
+      - "hudson.plugins.emailext.plugins.trigger.PreBuildTrigger"
+      - "hudson.plugins.emailext.plugins.trigger.FailureTrigger"
+      mailAccount:
+        address: "address not configured yet <nobody@nowhere>"
+        smtpHost: "smtp.gmail.com"
+        smtpPassword: "${EMAIL_PASSWORD}"
+        smtpPort: "465"
+        smtpUsername: "downward150@gmail.com"
+        useSsl: true
+      maxAttachmentSize: -1
+      maxAttachmentSizeMb: -1
+      precedenceBulk: false
+      smtpPassword: "${EMAIL_PASSWORD}"
+      watchingEnabled: false
 tool:
   git:
     installations:

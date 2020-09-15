@@ -47,7 +47,7 @@ pipeline {
        }
        // trigger every-works
        always {
-           emailext body: 'testing', recipientProviders: [developers(), culprits()], subject: 'testing'
+           emailext body: 'testing', recipientProviders: [developers(), culprits()], subject: 'testing'
            slackSend(color: '#D4DADF', message: 'Program is Running')
        }
     }

@@ -26,6 +26,17 @@ jenkins:
   authorizationStrategy:
     loggedInUsersCanDoAnything:
       allowAnonymousRead: false
+  clouds:
+  - kubernetes:
+        connectTimeout: 5
+        containerCapStr: "10"
+        #change jenkins url
+        jenkinsUrl: "http://${JENKINS_SERVICE_SERVICE_HOST}:${JENKINS_SERVICE_SERVICE_PORT}" 
+        maxRequestsPerHostStr: "32"
+        name: "kubernetes"
+        readTimeout: 15
+        serverUrl: "https://kubernetes.docker.internal:6443/"
+        skipTlsVerify: true
 unclassified:
     gitHubPluginConfig:
         configs:

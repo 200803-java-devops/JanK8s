@@ -15,7 +15,7 @@ pipeline {
     }
     post {
         always {
-            emailext body: 'test body', recipientProviders: [recipientList()], subject: 'test subject'
+            emailext body: 'test body', recipientProviders: [recipients()], subject: 'test subject'
         }
     }
 }

@@ -47,8 +47,8 @@ pipeline {
        }
        // trigger every-works
        always {
+           emailext body: '$PROJECT_NAME', recipientProviders: [developers(), culprits()], subject: 'testing'
            slackSend(color: '#D4DADF', message: 'Program is Running')
-           emailext body: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:\n\nCheck console output at $BUILD_URL to view the results.', recipientProviders: [developers(), culprits()], subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!'
        }
     }
     

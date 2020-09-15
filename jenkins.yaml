@@ -14,7 +14,7 @@ credentials:
             scope: GLOBAL
             username: ${DOCKER_HUB_USERNAME}
         - string:
-            description: "Slack Token"
+            description: "Slack token"
             scope: GLOBAL
             secret: ${SLACK_TOKEN}
 jenkins:

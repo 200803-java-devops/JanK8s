@@ -7,6 +7,10 @@ credentials:
             id: "4c65c3ce-abf9-498d-9cb6-985c27c2f553"
             scope: GLOBAL
             secret: ${GITHUB_WEBHOOK_TOKEN}
+        - string:
+            description: "Slack Token"
+            scope: GLOBAL
+            secret: ${SLACK_TOKEN}
         - usernamePassword:
             description: "docker hub"
             id: "docker_hub_credentials"
@@ -43,6 +47,11 @@ unclassified:
         -  name: "default"
            credentialsId: "4c65c3ce-abf9-498d-9cb6-985c27c2f553"
         hookUrl: "${MY_JENKINS_PROXY}"
+    slackNotifier:
+      botUser: false
+      sendAsText: false
+      teamDomain: "revaturetrain-cx22851"
+      tokenCredentialId: "${SLACK_TOKEN}"
 tool:
   git:
     installations:

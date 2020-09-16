@@ -50,6 +50,7 @@ unclassified:
         hookUrl: "${MY_JENKINS_PROXY}"
     slackNotifier:
       botUser: false
+      room: "#jank8sproject-2"
       sendAsText: false
       teamDomain: "revaturetrain-cx22851"
       tokenCredentialId: "slack-token"

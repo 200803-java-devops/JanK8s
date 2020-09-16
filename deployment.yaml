@@ -17,7 +17,7 @@ spec:
         spec:
             containers:
             -   name: jenkins
-                image: bensonre/myjenkins
+                image: jank8s/myjenkins
                 env:
                     - name: GITHUB_WEBHOOK_TOKEN
                       value: ___

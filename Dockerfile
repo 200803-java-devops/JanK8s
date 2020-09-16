@@ -8,9 +8,6 @@ USER root
 # DOCKER_GID should correspond to the group id of the docker group. You can check it on Linux systems with 'getent group docker'
 ENV DOCKER_GID=1001
 
-# RUN mkdir -p /scripts
-# COPY set-env-vars.sh /scripts
-# RUN /scripts/set-env-vars.sh
 ENV SMTP_HOST=smtp.gmail.com
 ENV TESTING=test
 ENV SMTP_PORT=465
@@ -18,7 +15,6 @@ ENV SMTP_USERNAME=downward150@gmail.com
 ENV DEFAULT_RECIPIENTS=downward150@gmail.com
 
 ENV SLACK_TEAM_DOMAIN=revaturetrain-cx22851
-ENV SLACK_TOKEN=jQnM60CIJeJHq9xeHkx2iN3K
 
 RUN groupadd -g ${DOCKER_GID} docker\
 && usermod -a -G docker jenkins

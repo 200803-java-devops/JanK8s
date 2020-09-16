@@ -9,6 +9,7 @@ credentials:
             secret: ${GITHUB_WEBHOOK_TOKEN}
         - string:
             description: "Slack Token"
+            id: "slack-token"
             scope: GLOBAL
             secret: ${SLACK_TOKEN}
         - usernamePassword:
@@ -51,7 +52,7 @@ unclassified:
       botUser: false
       sendAsText: false
       teamDomain: "revaturetrain-cx22851"
-      tokenCredentialId: "${SLACK_TOKEN}"
+      tokenCredentialId: "slack-token"
 tool:
   git:
     installations:

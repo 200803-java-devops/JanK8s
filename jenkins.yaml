@@ -9,6 +9,7 @@ credentials:
             secret: ${GITHUB_WEBHOOK_TOKEN}
         - string:
             description: "Slack Token"
+            id: "slack-token"
             scope: GLOBAL
             secret: ${SLACK_TOKEN}
         - usernamePassword:
@@ -17,10 +18,6 @@ credentials:
             password: ${DOCKER_HUB_TOKEN}
             scope: GLOBAL
             username: ${DOCKER_HUB_USERNAME}
-        - string:
-            description: "Slack Token"
-            scope: GLOBAL
-            secret: ${SLACK_TOKEN}
 jenkins:
   systemMessage: "Jenkins Configuration as Code Example"
   numExecutors: 1
@@ -54,8 +51,8 @@ unclassified:
     slackNotifier:
       botUser: false
       sendAsText: false
-      teamDomain: "revaturetrain-cx22851"
-      tokenCredentialId: "${SLACK_TOKEN}"
+      teamDomain: "${SLACK_TEAM_DOMAIN}"
+      tokenCredentialId: "slack-token"
     email-ext:
       adminRequiredForTemplateTesting: false
       allowUnregisteredEnabled: true
@@ -66,23 +63,21 @@ unclassified:
   
         Check console output at $BUILD_URL to view the results.
       defaultContentType: "text/plain"
-      defaultRecipients: "downward150@gmail.com"
+      defaultRecipients: "${DEFAULT_RECIPIENTS}"
       defaultSubject: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!"
       defaultTriggerIds:
-      - "hudson.plugins.emailext.plugins.trigger.AlwaysTrigger"
-      - "hudson.plugins.emailext.plugins.trigger.PreBuildTrigger"
       - "hudson.plugins.emailext.plugins.trigger.FailureTrigger"
       mailAccount:
         address: "address not configured yet <nobody@nowhere>"
-        smtpHost: "smtp.gmail.com"
-        smtpPassword: "${EMAIL_PASSWORD}"
-        smtpPort: "465"
-        smtpUsername: "downward150@gmail.com"
+        smtpHost: "${SMTP_HOST}"
+        smtpPassword: "${SMTP_PASSWORD}"
+        smtpPort: "${SMTP_PORT}"
+        smtpUsername: "${SMTP_USERNAME}"
         useSsl: true
       maxAttachmentSize: -1
       maxAttachmentSizeMb: -1
       precedenceBulk: false
-      smtpPassword: "${EMAIL_PASSWORD}"
+      smtpPassword: "${SMTP_PASSWORD}"
       watchingEnabled: false
 tool:
   git:

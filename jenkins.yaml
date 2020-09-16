@@ -18,6 +18,13 @@ credentials:
             password: ${DOCKER_HUB_TOKEN}
             scope: GLOBAL
             username: ${DOCKER_HUB_USERNAME}
+        - string:
+          description: "SA"
+          id: "satoken"
+          scope: GLOBAL
+          secret: ${SA_TOKEN}
+
+
 jenkins:
   systemMessage: "Jenkins Configuration as Code Example"
   numExecutors: 1
@@ -35,8 +42,8 @@ jenkins:
     - kubernetes:
         connectTimeout: 5
         containerCapStr: "10"
-        credentialsId: "5ae1df0f-e2d2-42a9-bf0e-f51b8f9291d8"
-        jenkinsUrl: "http://10.100.201.179:8080"
+        credentialsId: "satoken"
+        jenkinsUrl: "http://${JENKINS_SERVICE_SERVICE_HOST}:${JENKINS_SERVICE_SERVICE_PORT}"
         maxRequestsPerHostStr: "32"
         name: "kubernetes"
         namespace: "jank8s"

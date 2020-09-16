@@ -51,6 +51,7 @@ unclassified:
     slackNotifier:
       botUser: false
       sendAsText: false
+<<<<<<< HEAD
       teamDomain: "${SLACK_TEAM_DOMAIN}"
       tokenCredentialId: "slack-token"
     email-ext:
@@ -79,6 +80,10 @@ unclassified:
       precedenceBulk: false
       smtpPassword: "${SMTP_PASSWORD}"
       watchingEnabled: false
+=======
+      teamDomain: "revaturetrain-cx22851"
+      tokenCredentialId: "slack-token"
+>>>>>>> dev
 tool:
   git:
     installations:

@@ -7,6 +7,15 @@ ENV DOCKER_VERSION 19.03.12
 USER root
 # DOCKER_GID should correspond to the group id of the docker group. You can check it on Linux systems with 'getent group docker'
 ENV DOCKER_GID=1001
+
+ENV SMTP_HOST=smtp.gmail.com
+ENV TESTING=test
+ENV SMTP_PORT=465
+ENV SMTP_USERNAME=downward150@gmail.com
+ENV DEFAULT_RECIPIENTS=downward150@gmail.com
+
+ENV SLACK_TEAM_DOMAIN=revaturetrain-cx22851
+
 RUN groupadd -g ${DOCKER_GID} docker\
 && usermod -a -G docker jenkins
 RUN curl -fsSL "https://download.docker.com/linux/static/${DOCKER_CHANNEL}/x86_64/docker-${DOCKER_VERSION}.tgz" \

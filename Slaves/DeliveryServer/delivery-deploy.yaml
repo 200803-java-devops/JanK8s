@@ -15,9 +15,10 @@ spec:
             labels:
                 app: delivery
         spec:
+            serviceAccountName: deploy
             containers:
             -   name: delivery
-                image: jank8s/delivery_server
+                image:  jank8s/delivery_server:latest
                 volumeMounts:
                     - name: docker-docker
                       mountPath: /var/run/docker.sock

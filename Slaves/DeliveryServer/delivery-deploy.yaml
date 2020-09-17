@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    namespace: jank8s
+    name: delivery
+    labels:
+        app: delivery
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: delivery
+    template:
+        metadata:
+            labels:
+                app: delivery
+        spec:
+            containers:
+            -   name: delivery
+                image: jank8s/delivery_server
+                volumeMounts:
+                    - name: docker-docker
+                      mountPath: /var/run/docker.sock
+            restartPolicy: Always 
+            volumes:
+                - hostPath:
+                    path: "/var/run/docker.sock"
+                  name: "docker-docker"

@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    namespace: jank8s
+    name: build
+    labels:
+        app: build
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: build
+    template:
+        metadata:
+            labels:
+                app: build
+        spec:
+            containers:
+            -   name: jenkins
+                image: jank8s/myjenkins
+                env:
+                    - name: GITHUB_WEBHOOK_TOKEN
+                      value: ___
+                    - name: DOCKER_HUB_USERNAME
+                      value:  ___
+                    - name: DOCKER_HUB_TOKEN
+                      value: ___
+                    - name: MY_JENKINS_PROXY
+                      value: ___
+            restartPolicy: Always  

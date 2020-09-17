@@ -4,27 +4,26 @@
 This group project is a CI/CD tool that helps project integration and deployment. Once the code is pushed to github, this projet will start building, testing, packaging and deploying with notification. 
 
 ## Features
-- [ ] User Stories
-- [ ] Documentation
-- [ ] Cloud Hosting
-- [ ] Containerization
-- [ ] Orchestration
-- [ ] Continuous Integration
-- [ ] Continuous Delivery
-- [ ] Development Environment
-- [ ] Testing Environment
-- [ ] Production Environment
-- [ ] Reports
+- [x] User Stories
+- [x] Documentation
+- [x] Cloud Hosting
+- [x] Containerization
+- [x] Orchestration
+- [x] Continuous Integration
+- [x] Continuous Delivery
+- [x] Development Environment
+- [x] Testing Environment
+- [x] Production Environment
+- [x] Reports
 
 ## Tech Stack
-- [ ] Jenkins
-- [ ] Docker
-- [ ] Amazon Web Services:
-    - [ ] EKS
-    - [ ] ECR (or DockerHub)
-- [ ] GitHub
-- [ ] Kubernetes
-- [ ] Slack/Discord/Email
+- [x] Jenkins
+- [x] Docker and Docker Hub
+- [x] Amazon Web Services:
+    - [x] EKS
+- [x] GitHub
+- [x] Kubernetes
+- [x] Slack/Discord/Email
 
 ## User Story:
 

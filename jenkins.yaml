@@ -18,6 +18,13 @@ credentials:
             password: ${DOCKER_HUB_TOKEN}
             scope: GLOBAL
             username: ${DOCKER_HUB_USERNAME}
+        - string:
+          description: "SA"
+          id: "satoken"
+          scope: GLOBAL
+          secret: ${SA_TOKEN}
+
+
 jenkins:
   systemMessage: "Jenkins Configuration as Code Example"
   numExecutors: 1
@@ -32,16 +39,34 @@ jenkins:
     loggedInUsersCanDoAnything:
       allowAnonymousRead: false
   clouds:
-  - kubernetes:
+    - kubernetes:
         connectTimeout: 5
         containerCapStr: "10"
-        #change jenkins url
-        jenkinsUrl: "http://${JENKINS_SERVICE_SERVICE_HOST}:${JENKINS_SERVICE_SERVICE_PORT}" 
+        credentialsId: "satoken"
+        jenkinsUrl: "http://${JENKINS_SERVICE_SERVICE_HOST}:${JENKINS_SERVICE_SERVICE_PORT}"
         maxRequestsPerHostStr: "32"
         name: "kubernetes"
+        namespace: "jank8s"
         readTimeout: 15
-        serverUrl: "https://kubernetes.docker.internal:6443/"
-        skipTlsVerify: true
+        serverCertificate: |2-
+          -----BEGIN CERTIFICATE-----
+          MIICyDCCAbCgAwIBAgIBADANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDEwprdWJl
+          cm5ldGVzMB4XDTIwMDkxNjE5MDk1MloXDTMwMDkxNDE5MDk1MlowFTETMBEGA1UE
+          AxMKa3ViZXJuZXRlczCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALA0
+          u5VFRGOaoxuEajXvQuRr0Likg5xqp0AiTXvmRkmRfjoYzTvi3a8V+ft9rASSNAN5
+          3t6d8Akye0ksCgB5ntOMOvIjeWogaXSRplCZxpW7yrgNrM1FhiUxM7zfsrgvI8gB
+          L0MtNQSgkKQxcVk8wY6ukMV+g/j117vVPLFJ+26b+qpLQVtqfcrCAx3UybF202OY
+          k3KDdZq3FFvuIa8AU5i76YsS9GrCZVumz0rI0z81mN2mPSCuZsiX/sAelH0vfG19
+          ljRDLSpVsk1yYNh1MT1trLyNT3auEGD2VORqNc+m/ip06HavNYzAddiOqYVVUGy3
+          7Et5DbPE6sq4+BrHYDkCAwEAAaMjMCEwDgYDVR0PAQH/BAQDAgKkMA8GA1UdEwEB
+          /wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAATPNGTJrK25S/XENU1i/3XsQgLA
+          BU7LZ9K9X1sicVMtXZCLJura/NV5RqEBUztnlzVXUJ0WftfK6F8oGNQe+n6lE/i3
+          zfG585FyjnrBdyFwKgf8OJwTNasw6lNe5ld1CYvc0Q5C3Rayk+8bTU8VeQquPFug
+          7kX0wabnuJsFmanhXwQR82TrDlcVDeIYJNtnr04UqxzEr7Ky1qPcX2z0U9rHCrVh
+          /vsQ50euyeOFaPiX9T1fFxeFOTM4pg1kB+TvT+LJPRNz/FqnEd8OeNEk2wvtmdo2
+          Ekfas76dgD6Jq/sK/qW7yV+bWPWlRUJkZ5SJJZ68W1lmO2dgzRoFF5Emwvs=
+          -----END CERTIFICATE-----
+        serverUrl: "https://3A24A451782BEA5F4471208F7D9A585B.gr7.us-west-2.eks.amazonaws.com"
 unclassified:
     gitHubPluginConfig:
         configs:

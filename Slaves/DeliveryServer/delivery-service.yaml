@@ -6,9 +6,9 @@ metadata:
 spec:
     type: NodePort
     selector:
-        app: build
+        app: delivery
     ports:
-        - port: 8085
-          name: sample1
-          targetPort: 8085
-          nodePort: 30005
+        - port: 8086
+          name: nodejs-server
+          targetPort: 8086
+          nodePort: 30006
